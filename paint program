@@ -1,0 +1,131 @@
+import turtle
+import tkinter as tk
+from tkinter import *
+from tkinter import messagebox as mb
+from tkinter import simpledialog as sd
+root = tk.Tk()
+turtle.onscreenclick(turtle.goto)
+root.geometry('375x300')
+
+print("""
+  _____        _____ _   _ _______ 
+ |  __ \ /\   |_   _| \ | |__   __|
+ | |__) /  \    | | |  \| |  | |   
+ |  ___/ /\ \   | | | . ` |  | |   
+ | |  / ____ \ _| |_| |\  |  | |   
+ |_| /_/    \_\_____|_| \_|  |_|
+
+Version: 3.2
+Paint Action Logs:
+""")
+def r():
+    turtle.color("red")
+    print("Color changed to: Red")
+def o():
+    turtle.color("orange")
+    print("Color changed to: Orange")
+def y():
+    turtle.color("yellow")
+    print("Color changed to: Yellow")
+def g():
+    turtle.color("green")
+    print("Color changed to: Green")
+def b():
+    turtle.color("blue")
+    print("Color changed to: Blue")
+def p():
+    turtle.color("purple")
+    print("Color changed to: Purple")
+def w():
+    turtle.color("white")
+    print("Color changed to: White")
+def bl():
+    turtle.color("black")
+    print("Color changed to: Black")
+def undo():
+    turtle.undo()
+    print("Action undone!")
+def bgr():
+    turtle.bgcolor("red")
+    print("Background color changed to: Red")
+def bgo():
+    turtle.bgcolor("orange")
+    print("Background color changed to: Orange")
+def bgy():
+    turtle.bgcolor("yellow")
+    print("Background color changed to: Yellow")
+def bgg():
+    turtle.bgcolor("green")
+    print("Background color changed to: Green")
+def bgb():
+    turtle.bgcolor("blue")
+    print("Background color changed to: Blue")
+def bgp():
+    turtle.bgcolor("purple")
+    print("Background color changed to: Purple")
+def bgw():
+    turtle.bgcolor("white")
+    print("Background color changed to: White")
+def bgbl():
+    turtle.bgcolor("black")
+    print("Background color changed to: Black")
+def clear():
+    turtle.clear()
+    print("Cleared!")
+def credit():
+    mb.showinfo("Credits", "Created By: Alexander P")
+def pensize():
+    size = sd.askinteger("Pen Size", "Set Size", parent=root)
+    turtle.pensize(size)
+    if size != 1:
+        print("Pensize changed!")
+def pensizereset():
+    turtle.pensize(1)
+    print("Pensize reset!")
+def penup():
+    turtle.penup()
+    print("Stop drawing!")
+def pendown():
+    turtle.pendown()
+    print("Started drawing!")
+def bfill():
+    turtle.begin_fill()
+    print("Started filling!")
+def efill():
+    turtle.end_fill()
+    print("Stopped filling")
+label = Label(root, text="Colors").grid(row=1,column=1)
+label = Label(root, text="Background Color").grid(row=1,column=2)
+label = Label(root, text="Pen Options").grid(row=1,column=3)
+label = Label(root, text="Other/Misc").grid(row=1,column=4)
+
+btn = tk.Button(root,text = 'Red', command=r,pady=5,padx=5).grid(row=2,column=1)
+btn = tk.Button(root,text = 'Orange', command=o,pady=5,padx=5).grid(row=3,column=1)
+btn = tk.Button(root,text = 'Yellow', command=y,pady=5,padx=5).grid(row=4,column=1)
+btn = tk.Button(root,text = 'Green', command=g,pady=5,padx=5).grid(row=5,column=1)
+btn = tk.Button(root,text = 'Blue', command=b,pady=5,padx=5).grid(row=6,column=1)
+btn = tk.Button(root,text = 'Purple', command=p,pady=5,padx=5).grid(row=7,column=1)
+btn = tk.Button(root,text = 'White', command=w,pady=5,padx=5).grid(row=8,column=1)
+btn = tk.Button(root,text = 'Black', command=bl,pady=5,padx=5).grid(row=9,column=1)
+
+btn = tk.Button(root,text = 'Red', command=bgr,pady=5,padx=5).grid(row=2,column=2)
+btn = tk.Button(root,text = 'Orange', command=bgo,pady=5,padx=5).grid(row=3,column=2)
+btn = tk.Button(root,text = 'Yellow', command=bgy,pady=5,padx=5).grid(row=4,column=2)
+btn = tk.Button(root,text = 'Green', command=bgg,pady=5,padx=5).grid(row=5,column=2)
+btn = tk.Button(root,text = 'Blue', command=bgb,pady=5,padx=5).grid(row=6,column=2)
+btn = tk.Button(root,text = 'Purple', command=bgp,pady=5,padx=5).grid(row=7,column=2)
+btn = tk.Button(root,text = 'White', command=bgw,pady=5,padx=5).grid(row=8,column=2)
+btn = tk.Button(root,text = 'Black', command=bgbl,pady=5,padx=5).grid(row=9,column=2)
+
+btn = tk.Button(root,text = 'Pen Size', command=pensize,pady=5,padx=5).grid(row=2,column=3)
+btn = tk.Button(root,text = 'Pen Size Reset', command=pensizereset,pady=5,padx=5).grid(row=3,column=3)
+btn = tk.Button(root,text = 'Pen Up',command=penup,pady=5,padx=5).grid(row=4,column=3)
+btn = tk.Button(root,text = 'Pen Down',command=pendown,pady=5,padx=5).grid(row=5,column=3)
+
+btn = tk.Button(root,text = 'Clear',command=clear,pady=5,padx=5).grid(row=2,column=4)
+btn = tk.Button(root,text = 'Undo', command=undo,pady=5,padx=5).grid(row=3,column=4)
+btn = tk.Button(root,text = 'Begin Fill',command=bfill,pady=5,padx=5).grid(row=4,column=4)
+btn = tk.Button(root,text = 'Finish Fill',command=efill,pady=5,padx=5).grid(row=5,column=4)
+btn = tk.Button(root,text = 'Credits', command=credit,pady=5,padx=5).grid(row=6,column=4)
+
+turtle.listen()
